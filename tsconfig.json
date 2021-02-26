@@ -7,7 +7,8 @@
       "ESNext"
     ],
     "types": [
-      "vite/client"
+      "vite/client",
+      "./fre-jsx-runtime"
     ],
     "allowJs": false,
     "skipLibCheck": false,
@@ -20,13 +21,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "noImplicitAny": false,
+    "jsx": "react-jsx",
+    "jsxImportSource": "fre",
     "baseUrl": "./",
+    "sourceMap": true,
     "paths": {
       "~/*": ["./src/*"],
       "~/public/*": ["./public/*"]
     }
   },
+  "outDir": "./dist",
   "include": [
     "./src"
   ]

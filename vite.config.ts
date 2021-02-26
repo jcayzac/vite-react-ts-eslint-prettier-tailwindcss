@@ -4,6 +4,7 @@ import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import { UserConfig } from 'vite'
 import { join } from 'path'
+//import * as eslintConfig from './.eslintrc'
 
 const config: UserConfig = {
   css: {
@@ -11,8 +12,22 @@ const config: UserConfig = {
       plugins: [tailwindcss(), autoprefixer()],
     },
   },
+  build: {
+    sourcemap: true,
+  },
+  esbuild: {
+    jsxFactory: 'jsx',
+    jsxFragment: 'Fragment',
+    jsxInject: `import { h as jsx, h as jsxs, Fragment } from 'fre'`,
+  },
   plugins: [
-    { ...eslint({ include: 'src/**/*.+(js|jsx|ts|tsx)' }), enforce: 'pre' },
+    {
+      ...eslint({
+        //...eslintConfig,
+        include: 'src/**/*.+(js|jsx|ts|tsx)',
+      }),
+      enforce: 'pre',
+    },
     reactRefresh(),
   ],
   resolve: {

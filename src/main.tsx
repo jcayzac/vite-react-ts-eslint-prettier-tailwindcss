@@ -1,11 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+/* @jsxImportSource fre */
+import { render } from 'fre'
 import '~/index.css'
 import App from '~/App'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+const root = document.getElementById('root')
+
+if (root !== null) {
+  render(<App />, root)
+}
